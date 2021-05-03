@@ -55,7 +55,8 @@ class RestaurantServiceTest {
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
 
-        assertThrows(restaurantNotFoundException.class,()->service.removeRestaurant("Pantry d'or"));
+
+        assertThrows(restaurantNotFoundException.class,() -> service.removeRestaurant("Pantry"));
     }
 
     @Test

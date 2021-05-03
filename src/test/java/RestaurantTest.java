@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,6 +43,14 @@ class RestaurantTest {
         int initialMenuSize = restaurant.getMenu().size();
         restaurant.addToMenu("Sizzling brownie",319);
         assertEquals(initialMenuSize+1,restaurant.getMenu().size());
+    }
+
+    @Test
+    public void calculating_item_total(){
+        adding_item_to_menu_should_increase_menu_size_by_1();
+        List<Item> itemList = restaurant.getMenu();
+        //suppose user have selected first and second item
+        assertEquals(119+269,itemList.get(0).getPrice()+itemList.get(1).getPrice());
     }
     @Test
     public void removing_item_from_menu_should_decrease_menu_size_by_1() throws itemNotFoundException {
